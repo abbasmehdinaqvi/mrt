@@ -4,15 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "mr__dependable",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
+    "handlebars": "^4.7.7",
+    "hbs": "^4.2.0",
     "mongodb": "^4.6.0",
     "mongoose": "^6.3.3",
     "nodemon": "^2.0.16",
