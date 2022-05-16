@@ -1,10 +1,16 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 
-const doctorLoginSchema = mongoose.model({
+const userSchema = mongoose.Schema({
+    userType : {
+        type : String ,
+        enum : ['Doctor', 'Patient'],
+        required : true
+    },
     name: {
         type: String,
         required: true,
+        trim : true ,
         minlength: 3
     },
     email: {
@@ -18,7 +24,7 @@ const doctorLoginSchema = mongoose.model({
         }
     },
     phone: {
-        type: Number,
+        type: String,
         min: 10,
         max: 10,
         required: true,
@@ -30,5 +36,4 @@ const doctorLoginSchema = mongoose.model({
     }
 })
 
-const DoctorLogin = new mongoose.model('DoctorLogin', doctorLoginSchema);
-module.exports = DoctorLogin;
+module.exports = mongoose.model('user', userSchema);

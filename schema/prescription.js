@@ -1,7 +1,16 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 
-const prescriptionSchema = mongoose.model({
+const prescriptionSchema = mongoose.Schema({
+    email: {
+        type: String,
+        validate(value) {
+            if (!validator.isEmail(value)) {
+                throw new Error("Invalid Email")
+            }
+        }
+    },
+
     date: {
         type: String,
         required: true
@@ -31,5 +40,4 @@ const prescriptionSchema = mongoose.model({
     }
 })
 
-const Prescription = new mongoose.model('Prescription', prescriptionSchema);
-module.exports = Prescription;
+module.exports = mongoose.model('Prescription', prescriptionSchema);
