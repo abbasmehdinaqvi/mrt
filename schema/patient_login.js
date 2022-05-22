@@ -27,7 +27,7 @@ const patientLoginSchema = mongoose.model({
     password: {
         type: String,
         required: true
-    },
+    }
 })
 
 const PatientLogin = new mongoose.model('PatientLogin' , patientLoginSchema);
